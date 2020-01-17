@@ -1,92 +1,107 @@
+package project;
+
 public class Book {
-    private String title;
-    private String authorName;
-    private int numberOfPages;
-    private double price;
-    private String published;
 
-    private static int numberBook;
+	private int edition;
 
-    protected String genre;
-    protected String country;
+	private String authorName;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	private int numberOfPages;
 
-    public String getTitle() {
-        return title;
-    }
+	private double priceInUAH;
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
-    }
+	private String published;
 
-    public String getAuthorName() {
-        return authorName;
-    }
+	private static int numberBookInList;
 
-    public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
-    }
+	protected String genre;
 
-    public int getNumberOfPages() {
-        return numberOfPages;
-    }
+	protected String country;
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+	public void setTitle(int title) {
+		this.edition = title;
+	}
 
-    public double getPrice() {
-        return price;
-    }
+	public int getTitle() {
+		return edition;
+	}
 
-    public void setPublished(String published) {
-        this.published = published;
-    }
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
 
-    public String getPublished() {
-        return published;
-    }
+	public String getAuthorName() {
+		return authorName;
+	}
 
-    @Override
-    public String toString() {
-        return "Book [authorName=" + authorName + ", country=" + country + ", genre=" + genre + ", numberOfPages="
-                + numberOfPages + ", price=" + price + ", published=" + published + ", title=" + title + "]";
-    }
+	public void setNumberOfPages(int numberOfPages) {
+		this.numberOfPages = numberOfPages;
+	}
 
-    public static void printStaticNumberBook() {
-        System.out.println(numberBook);
-    }
+	public int getNumberOfPages() {
+		return numberOfPages;
+	}
 
-    public static void printNumberBook() {
-        System.out.println(numberBook);
-    }
+	public void setPrice(double price) {
+		this.priceInUAH = price;
+	}
 
-    public void resetValues(String title, String authorName, int numberOfPages, double price, String published,
-            String genre, String country) {
+	public double getPrice() {
+		return priceInUAH;
+	}
 
-    }
+	public void setPublished(String published) {
+		this.published = published;
+	}
 
-    Book() {
+	public String getPublished() {
+		return published;
+	}
 
-    }
+	@Override
+	public String toString() {
+		return "Book [authorName=" + authorName + ", country=" + country + ", genre=" + genre + ", numberOfPages="
+				+ numberOfPages + ", price=" + priceInUAH + ", published=" + published + ", title=" + edition + "]";
+	}
 
-    Book(String title, String authorName, int numberOfPages, double price) {
-        setTitle(title);
-        setAuthorName(authorName);
-        setNumberOfPages(numberOfPages);
-        setPrice(price);
-    }
+	public static void printStaticNumberBook() {
+		System.out.println(numberBookInList);
+	}
 
-    Book(String title, String authorName, int numberOfPages, double price, String published, String genre,
-            String country) {
-        Book(title, authorname, numberOfPages, price);
-        setPublished(published);
-        this.genre = genre;
-        this.country = country;
+	public void printNumberBook() {
+		System.out.println(numberBookInList);
+	}
 
-    }
+	public void resetValues(int title, String authorName, int numberOfPages, double price, String published,
+			String genre, String country) {
+		this.edition = title;
+		this.authorName = authorName;
+		this.numberOfPages = numberOfPages;
+		this.priceInUAH = price;
+		this.published = published;
+		this.genre = genre;
+		this.country = country;
+	}
+
+	Book() {
+		numberBookInList++;
+	}
+
+	Book(int title, String authorName, int numberOfPages, double price, String published, String genre,
+			String country) {
+		this.edition = title;
+		this.authorName = authorName;
+		this.numberOfPages = numberOfPages;
+		this.priceInUAH = price;
+		this.published = published;
+		this.genre = genre;
+		this.country = country;
+		numberBookInList++;
+	}
+
+	Book(int title, String authorName, int numberOfPages, double price) {
+		this(title, authorName, numberOfPages, price, null, null, null);
+		numberBookInList++;
+	}
 
 }
